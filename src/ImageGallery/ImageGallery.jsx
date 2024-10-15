@@ -1,17 +1,29 @@
 
-const ImageGallery = () => {
+import ImageCard from "../ImageCard/ImageCard";
 
+const ImageGallery = ({images, onOpenImage}) => {
   return (
-    <div>
-<ul>
-	
-	<li>
-	
-	</li>
-</ul>
-
-    </div>
+    <ul>
+	  {images.map((image) => 
+    <li key={image.id}>
+    <ImageCard
+    image={image}
+    onOpenImage={onOpenImage}
+    />
+    </li>
+  )}
+    </ul>
   )
 }
 
 export default ImageGallery;
+
+
+
+
+
+
+
+
+
+

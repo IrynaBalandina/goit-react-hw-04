@@ -1,13 +1,15 @@
 
-
-
-const ImageCard = () => {
+const ImageCard = ({image, onOpenImage}) => {
   return (
   
         <div>
   <img 
-  src =""
-  alt="" />
+     key={image.id}
+     src={image.urls.small}
+     alt={image.alt_description}
+     onClick={() => onOpenImage(image.urls.full)}
+  
+  />
 </div>
     
   )
