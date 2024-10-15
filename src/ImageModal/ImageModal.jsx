@@ -1,24 +1,25 @@
 import Modal from 'react-modal';
+import style from './ImageModal.module.css'
 
-
-const ImageModal = ({onCloseModal, modalIsOpen, imgForModal, url, description}) => {
+const ImageModal = ({onCloseModal, modalIsOpen, imgForModal,  description}) => {
   return (
-    <div>
-      <button onClick={modalIsOpen}>Open Modal</button>
+   
+ 
       <Modal
         isOpen={modalIsOpen}
         imgForModal={imgForModal}
         onRequestClose={onCloseModal}
-      
-        contentLabel="Image modal"
+      contentLabel="Image modal"
+      className={style.modal}
+      overlayClassName={style.overlay}
       >
     
-       
-        <div onClick={onCloseModal}>
-        <button onClick={onCloseModal}>❌</button>
-        <img src={url} alt={description} />
+    <img src={imgForModal.src} alt={imgForModal.description} />
         <div>
+       
         <p className="">Photo: {description}</p>
+        <div>
+        <button onClick={onCloseModal}>❌</button>
                
 
           </div>
@@ -26,7 +27,7 @@ const ImageModal = ({onCloseModal, modalIsOpen, imgForModal, url, description}) 
          
       
       </Modal>
-    </div>
+    
   )
 }
 Modal.setAppElement('#root');

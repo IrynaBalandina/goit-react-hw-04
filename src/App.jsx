@@ -17,7 +17,7 @@ function App()  {
     const [page, setPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
     const [modalIsOpen, setIsOpen] = useState(false);
-    const [imgForModal, setImgForModal] = useState({});
+    const [imgForModal, setImgForModal] = useState([]);
 
    const handleSubmit = (newSearch) => {
       setSearchImg(newSearch);
@@ -31,16 +31,16 @@ function App()  {
 
    
    
-    const onOpenImage = (images) => {
-      setIsOpen(true);
-      setImgForModal(images)
-     
-    }
+    function onOpenImage(images) {
+    setIsOpen(true);
+    setImgForModal(images);
+
+  }
     
-    const onCloseModal = () => {
-      setIsOpen(false);
-      setImgForModal(null)
-    };
+    function closeModal() {
+    setIsOpen(false);
+    setImgForModal(null);
+  }
    
     useEffect(() => {
       const onFormSerchSubmit = async () => {
@@ -76,7 +76,7 @@ function App()  {
           <Toaster/>
           {isError && <ErrorMessage/>}
           {images.length > 0 && page < totalPages && <LoadMoreBtn onClick={handleLoadMore} />}
-           {modalIsOpen && <ImageModal imgForModal={imgForModal} onCloseModal={onCloseModal} modalIsOpen={modalIsOpen}/>}
+           {modalIsOpen && (<ImageModal imgForModal={imgForModal} onCloseModal={closeModal} modalIsOpen={modalIsOpen}/>)}
        
       
             </div>

@@ -1,5 +1,6 @@
 
 const ImageCard = ({image, onOpenImage}) => {
+
   return (
   
         <div>
