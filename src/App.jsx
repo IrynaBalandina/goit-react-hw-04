@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-
+import toast, { Toaster } from "react-hot-toast";
 import ImageGallery from './ImageGallery/ImageGallery.jsx';
 import SearchBar from './SearchBar/SearchBar.jsx';
 import ErrorMessage from './ErrorMessage/ErrorMessage.jsx';
@@ -19,7 +19,7 @@ function App()  {
     const [modalIsOpen, setIsOpen] = useState(false);
     const [imgForModal, setImgForModal] = useState({});
 
-   const handleSearch = (newSearch) => {
+   const handleSubmit = (newSearch) => {
       setSearchImg(newSearch);
        setImages([]);
        setPage(1);
@@ -69,15 +69,14 @@ function App()  {
   return (
     
       <div>
-         <SearchBar  onSearch={handleSearch} />
-         {isLoading && <Loader />}
+         <SearchBar  onSubmit={handleSubmit} />
+       
           {images.length > 0 && <ImageGallery images={images} onOpenImage={onOpenImage}/>}
+          {isLoading && <Loader />}
+          <Toaster/>
           {isError && <ErrorMessage/>}
           {images.length > 0 && page < totalPages && <LoadMoreBtn onClick={handleLoadMore} />}
-       
-         {isLoading && <Loader />}
-        
-         {modalIsOpen && <ImageModal imgForModal={imgForModal} onCloseModal={onCloseModal} modalIsOpen={modalIsOpen}/>}
+           {modalIsOpen && <ImageModal imgForModal={imgForModal} onCloseModal={onCloseModal} modalIsOpen={modalIsOpen}/>}
        
       
             </div>

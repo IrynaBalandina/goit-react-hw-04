@@ -2,18 +2,20 @@ import { FaSearch } from "react-icons/fa";
 import toast from 'react-hot-toast';
 
   
-  const SearchBar = ({ onSearch}) => {
+  const SearchBar = ({ onSubmit}) => {
     const handleSubmit = (e) => {
       e.preventDefault();
-      const searchImg = e.currentTarget.elements.search.value.trim();
+      const form  = e.target;
+      const searchImgForm = form.elements.search.value.trim();
   
-      if (searchImg === "") {
-       return toast.error("Please, specify your request.", {
+      if (searchImgForm === "") {
+ toast.error("Please, specify your request.", {
         position: "top-right",
       });
       }
   
-      onSearch(searchImg);
+      onSubmit(searchImgForm);
+      form.reset();
     };
 
   return (
