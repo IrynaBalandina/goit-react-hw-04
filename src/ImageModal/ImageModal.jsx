@@ -1,7 +1,7 @@
 import Modal from 'react-modal';
 import style from './ImageModal.module.css'
 
-const ImageModal = ({onCloseModal, modalIsOpen, imgForModal,  description}) => {
+const ImageModal = ({onCloseModal, modalIsOpen, imgForModal,  alt_description}) => {
   return (
    
  
@@ -14,10 +14,10 @@ const ImageModal = ({onCloseModal, modalIsOpen, imgForModal,  description}) => {
       overlayClassName={style.overlay}
       >
     
-    <img src={imgForModal.src} alt={imgForModal.description} />
+    <img className={style.imgModal} src={imgForModal.regular} alt={imgForModal.alt_description} />
         <div>
        
-        <p className="">Photo: {description}</p>
+        <p className="">Photo: {alt_description}</p>
         <div>
         <button onClick={onCloseModal}>❌</button>
                

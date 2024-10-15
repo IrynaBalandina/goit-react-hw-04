@@ -1,15 +1,24 @@
+import style from './ImageCard.module.css'
+const ImageCard = ({
+  image:{
+    alt_description,
+    urls:{regular},
 
-const ImageCard = ({image, onOpenImage}) => {
-
+  },
+   onOpenImage,}) => {
+const onClickOpenModal= () => {
+  onOpenImage({ alt_description, regular });
+};
   return (
   
-        <div>
+        <div onClick = {onClickOpenModal}>
   <img 
-     key={image.id}
-     src={image.urls.small}
-     alt={image.alt_description}
-     onClick={() => onOpenImage(image.urls.full)}
-  
+     
+     src={regular}
+     alt={alt_description}
+    className={style.img}
+
+   
   />
 </div>
     

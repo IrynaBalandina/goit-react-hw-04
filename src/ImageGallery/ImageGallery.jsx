@@ -1,9 +1,10 @@
 
 import ImageCard from "../ImageCard/ImageCard";
+import style from './ImageGallery.module.css';
 
 const ImageGallery = ({images, onOpenImage}) => {
   return (
-    <ul>
+    <ul className={style.list}>
 	  {images.map((image) => 
     <li key={image.id}>
     <ImageCard
