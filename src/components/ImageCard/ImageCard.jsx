@@ -1,4 +1,4 @@
-import style from './ImageCard.module.css'
+import style from './ImageCard.module.css';
 const ImageCard = ({
   image:{
     alt_description,

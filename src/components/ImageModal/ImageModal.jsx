@@ -1,5 +1,5 @@
 import Modal from 'react-modal';
-import style from './ImageModal.module.css'
+import style from './ImageModal.module.css';
 
 const ImageModal = ({onCloseModal, modalIsOpen, imgForModal,  alt_description}) => {
   return (
